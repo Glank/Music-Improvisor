@@ -49,6 +49,7 @@ public class MyMusic
 		return chord;
 	}
 
+	//probabalistic decision tree for finding the next logical chord
 	public int getNextChordNumber(int oldNumber)
 	{
 		int newNumber = 0;
@@ -94,13 +95,12 @@ public class MyMusic
 
 	public int getBaseNote(int note)
 	{
-		while (note >= 7)
-			note-=7;
-		return note;
+		return note%7;
 	}
 
 	public int getNextNote(int[] scale, int oldNote, int[] chord, int lowNoteBounds, int highNoteBounds)
 	{
+		//bounds for the next note - must be within 3 of the old one
 		int lowestPosibility = oldNote - 3;
 		if (lowestPosibility < lowNoteBounds)
 			lowestPosibility = lowNoteBounds;

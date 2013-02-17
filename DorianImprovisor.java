@@ -26,17 +26,17 @@ public class DorianImprovisor extends JFrame
 			on(scale[note]);
 			for(int times = 0; times < beatsPerMeasure; times++)
 			{
-				try { Thread.sleep((int)(length*200)); }
+				try { Thread.sleep((int)(length*200)); } //sleep
 				catch (InterruptedException e) {}
-				if((int)(Math.random()*3) <= 0)
+				if((int)(Math.random()*3) <= 0) //33% chance
 				{
 					off(scale[note]);
 					note = component.getNextNote(scale, note, component.getChord(scale, chord), 7, 24);
 					on(scale[note]);
 				}
-				try { Thread.sleep((int)(length*200)); }
+				try { Thread.sleep((int)(length*200)); } //sleep
 				catch (InterruptedException e) {}
-				if((int)(Math.random()*2) <= 0)
+				if((int)(Math.random()*2) <= 0) //50% chance
 				{
 					off(component.getChord(scale, chord));
 					off(scale[note]);
